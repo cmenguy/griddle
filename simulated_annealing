@@ -11,7 +11,7 @@ parser = OptionParser()
 parser.add_option("-s", "--size", dest="size",
     help="size of the grid in format WxH", metavar="SIZE")
 parser.add_option("-t", "--tau", dest="tau",
-    help="temperature agitation factor", metavar="TAU")
+    help="initial perturbation coefficient", metavar="TAU")
 parser.add_option("-b", "--beta", dest="beta",
     help="cooling factor", metavar="BETA")
 parser.add_option("-v", "--verbose", dest="verbose",
