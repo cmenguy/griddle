@@ -75,4 +75,17 @@ It is worth noting that as the grid size grows, the tree of probabilities grows 
 
 ### Influence of perturbation coefficient
 
-The perturbation coefficient is very important
+The perturbation coefficient is very important as it controls the accept probability for a new random state. In other terms, it helps avoiding local minima by adding more diversity in the neighboring states, and so should be chosen wisely.
+In physics term for the analogy to the simulated annealing process, it can be seen as the agitation : if the agitation is too low, we will end up with a local minima, if the agitation is too high, the algorithm will take a very long time to converge.
+
+The following curves show the influence of tau on the energy of the system:
+
+![tau energy](/data/tau-energy.png "Influence of Tau on the energy")
+
+We can see that a higher tau leads to a better exploration of the solution space and is able to converge towards the global minima, while lower values of tau cause it to get trapped in a local minima.
+
+### Influence of cooling factor
+
+The cooling factor beta is also important because it determines how aggressively the system will cool down after each iteration. It is important not to cool down too quickly otherwise the solution space will not be explored fully, but also cooling down too slowly will be very slow to converge.
+
+![beta energy](/data/beta-energy.png "Influence of Beta on the energy")
