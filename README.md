@@ -51,7 +51,7 @@ For a complete list of all parameters available, you can use the help menu:
 With a verbose level of 1 or more, the initial state will be represented with `pygame`.
 This shows the grid as a set of tiles, and various connections between each of the tiles created at random.
 
-[chaotic grid](/data/chaos.png "Grid in initial state")
+![chaotic grid](/data/chaos.png "Grid in initial state")
 
 ### Final State
 
