@@ -1,0 +1,59 @@
+#!/usr/bin/python
+
+from grid_optimizer.optimizer import SimulatedAnnealing
+from grid_optimizer.grid import Grid
+
+from optparse import OptionParser
+
+import sys
+
+parser = OptionParser()
+parser.add_option("-s", "--size", dest="size",
+    help="size of the grid in format WxH", metavar="SIZE")
+parser.add_option("-t", "--tau", dest="tau",
+    help="temperature agitation factor", metavar="TAU")
+parser.add_option("-b", "--beta", dest="beta",
+    help="cooling factor", metavar="BETA")
+parser.add_option("-v", "--verbose", dest="verbose",
+    help="verbose level", metavar="VERBOSE")
+parser.add_option("-n", "--nograph", dest="analyze",
+    action="store_false", default=True)
+(options, args) = parser.parse_args()
+
+size = options.size
+if not size:
+    size = "5x5"
+
+tau = options.tau
+if not tau:
+    tau = "0.9"
+tau = float(tau)
+if tau <= 0 or tau >= 1:
+    print >> sys.stderr, "tau has to be between 0 and 1"
+    sys.exit(1)
+
+beta = options.beta
+if not beta:
+    beta = "0.9"
+beta = float(beta)
+if beta <= 0 or beta >= 1:
+    print >> sys.stderr, "beta has to be between 0 and 1"
+    sys.exit(1)
+
+verbose = options.verbose
+if not verbose:
+    verbose = "1"
+verbose = int(verbose)
+
+analyze = options.analyze
+
+width, height = map(int, size.split("x"))
+
+grid = Grid(width, height)
+grid.initGrid()
+
+model = SimulatedAnnealing(
+            tau=tau, 
+            grid=grid,
+            diminish=beta)
+model.run(verbose, analyze)
