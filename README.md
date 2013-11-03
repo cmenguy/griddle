@@ -3,14 +3,14 @@
 grid-optimizer makes use of the [Simulated Annealing](http://en.wikipedia.org/wiki/Simulated_annealing) algorithm to optimize and arange grid connections from a state of complete chaos to an optimal state.
 
 ## Quicklinks
-	- [Installation](#installation)
-	- [Example](#example)
-		- [Initial state](#initial-state)
-		- [Final state](#final-state)
-		- [Large grids](#large-grids)
-	- [Analysis](#analysis)
-		- [Influence of perturbation coefficient](#influence-of-perturbation-coefficient)
-		- [Influence of cooling factor](#influence-of-cooling-factor)
+  - [Installation](#installation)
+  - [Example](#example)
+    - [Initial state](#initial-state)
+    - [Final state](#final-state)
+    - [Large grids](#large-grids)
+  - [Analysis](#analysis)
+    - [Influence of perturbation coefficient](#influence-of-perturbation-coefficient)
+    - [Influence of cooling factor](#influence-of-cooling-factor)
 
 ## Installation
 
