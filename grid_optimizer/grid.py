@@ -1,5 +1,6 @@
 import random
 import pygame
+import os
 
 # represents a grid as a set of tiles
 class Grid:
@@ -13,6 +14,8 @@ class Grid:
         # objective function - what we need to optimize
         self.objective = 0;
         self.distance = distance
+        
+        self.assets_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), "data")
         
     # generate connections between tiles
     def genConn(self):
@@ -124,16 +127,16 @@ class Grid:
         pygame.display.set_caption('Simulated annealing for grid optimization - github.com/cmenguy/grid-optimizer')
         
         # fonts
-        font = pygame.font.Font('../data/scribble.TTF', 42)
-        font2 = pygame.font.Font('../data/KLEPTOMA.TTF', 42)
+        font = pygame.font.Font(os.path.join(self.assets_dir, "scribble.TTF"), 42)
+        font2 = pygame.font.Font(os.path.join(self.assets_dir, "KLEPTOMA.TTF"), 42)
         font2.set_underline(True);
-        font3 = pygame.font.Font('../data/scribble.TTF', 21)
+        font3 = pygame.font.Font(os.path.join(self.assets_dir, "scribble.TTF"), 21)
         
         running = 1;
         
         # get coordinates of tiles based on position and order
         for i in range(len(self.tiles)):
-            self.tiles[i].setImg(pygame.image.load('../data/component.png').convert());
+            self.tiles[i].setImg(pygame.image.load(os.path.join(self.assets_dir, "component.png")).convert());
             posx = (self.tiles[i].pos -1) % self.horizontal;
             posy = (self.tiles[i].pos -1) / self.vertical;
             self.tiles[i].setX(posx*spritesizeW + posx*(maxscreenW-spritesizeW*self.horizontal-menusize)/(self.horizontal-1));
