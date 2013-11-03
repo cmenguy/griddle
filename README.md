@@ -64,4 +64,15 @@ Here is an example of what a grid can look like after the algorithm is done:
 
 Note that it is not guaranteed that the simulated annealing algorithm will find the global optima, as it could also be stuck in a local optima depending on the values of tau and beta chosen - more on that in the [analysis](#analysis) section.
 
-###
+### Large grids
+
+You can also specify grids larger than 5x5 with the command line, and the algorithm should work the same way.
+It is worth noting that as the grid size grows, the tree of probabilities grows as well, and so the algorithm is more likely to get stuck in a local minima, so it is important to decrease the temperature more slowly as you increase the size.
+
+![big grid](/data/big-grid.png "Large grid in final state")
+
+## Analysis
+
+### Influence of perturbation coefficient
+
+The perturbation coefficient is very important
