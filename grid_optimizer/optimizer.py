@@ -44,7 +44,7 @@ class SimulatedAnnealing:
         self.temp = mean * (-1) / math.log(self.tau)
         
     # main loop of the simulated annealing algorithm
-    def run(self, genCurve=False):
+    def run(self, verbose, analyze):
         # initialize temperature
         self.initialTemp();
         
@@ -62,15 +62,14 @@ class SimulatedAnnealing:
         histogram = [0, 0];
         
         # display the initial grid if allowed
-        if genCurve:
+        if verbose >= 1:
             self.grid.displayGrid(self.temp, cptiter, self.tau, self.equilibre[0], self.equilibre[1]);
         
         # main loop
         while 1:
-            if genCurve:
-                plotE.append(self.grid.objective);
-                plotT.append(time.time() - curTime);
-                plotTemp.append(self.temp);
+            plotE.append(self.grid.objective);
+            plotT.append(time.time() - curTime);
+            plotTemp.append(self.temp);
             
             # generate 2 random numbers representing perturbation
             rd1 = random.randint(1, len(self.grid.tiles)+1);
@@ -107,7 +106,7 @@ class SimulatedAnnealing:
                         
                         else:
                             cptiter += 1;
-                            if genCurve:
+                            if verbose >= 2:
                                 self.grid.displayGrid(self.temp, cptiter, self.tau, self.equilibre[0], self.equilibre[1]);
                             print 'Iteration ' + str(cptiter) + ' : ' + str(histogram[1]) + ' vs ' + str(spy)
                             
@@ -140,7 +139,7 @@ class SimulatedAnnealing:
                             break;
                         else:
                             cptiter += 1;
-                            if genCurve:
+                            if verbose >= 2:
                                 self.grid.displayGrid(self.temp, cptiter, self.tau, self.equilibre[0], self.equilibre[1]);
                             print 'Iteration ' + str(cptiter) + ' : ' + str(histogram[1]) + ' vs ' + str(spy)
                             if histogram[1] == spy:
@@ -165,7 +164,7 @@ class SimulatedAnnealing:
                             break;
                         else:
                             cptiter += 1;
-                            if genCurve:
+                            if verbose >= 2:
                                 self.grid.displayGrid(self.temp, cptiter, self.tau, self.equilibre[0], self.equilibre[1]);
                             print 'Iteration ' + str(cptiter) + ' : ' + str(histogram[1]) + ' vs ' + str(spy)
                             if histogram[1] == spy:
@@ -179,18 +178,10 @@ class SimulatedAnnealing:
         # simulated annealing has converged
         print 'Simulated Annealing has converged : objective=' + str(self.grid.objective)
         self.cptpalier = cptiter;
-        self.plots = pl.plot(plotT, plotE, color=self.color);
+        
+        if analyze:
+            self.plots = pl.plot(plotT, plotE, color=self.color);
             
         # print final grid
-        if genCurve:
+        if verbose >= 1:
             self.grid.displayGrid(self.temp, cptiter, self.tau, self.equilibre[0], self.equilibre[1]);
-                            
-                
-def main():
-    grid = Grid(5, 5);
-    grid.initGrid();
-    
-    rs = SimulatedAnnealing(0.8, grid)
-    rs.run(True)
-    
-main()
