@@ -53,6 +53,15 @@ This shows the grid as a set of tiles, and various connections between each of t
 
 ![chaotic grid](/data/chaos.png "Grid in initial state")
 
+The goal is to minimize the total distance between each tile using the simulated annealing algorithm.
+
 ### Final State
+
+Once the algorithm has converged, the grid will be in a state where the entropy in the system has been minimized with successive temperature decreases.
+Here is an example of what a grid can look like after the algorithm is done:
+
+![optimized grid](/data/order.png "Grid in final state")
+
+Note that it is not guaranteed that the simulated annealing algorithm will find the global optima, as it could also be stuck in a local optima depending on the values of tau and beta chosen - more on that in the [analysis](#analysis) section.
 
 ###
