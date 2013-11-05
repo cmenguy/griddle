@@ -1,6 +1,6 @@
-# grid-optimizer &mdash; Complex optimization on 2-dimensional grids
+# griddle &mdash; Complex optimization on 2-dimensional grids
 
-grid-optimizer makes use of the [Simulated Annealing](http://en.wikipedia.org/wiki/Simulated_annealing) algorithm to optimize and arange grid connections from a state of complete chaos to an optimal state.
+griddle makes use of the [Simulated Annealing](http://en.wikipedia.org/wiki/Simulated_annealing) algorithm to optimize and arange grid connections from a state of complete chaos to an optimal state.
 
 ## Quicklinks
   - [Installation](#installation)
@@ -14,7 +14,7 @@ grid-optimizer makes use of the [Simulated Annealing](http://en.wikipedia.org/wi
 
 ## Installation
 
-grid-optimizer is written in Python, tested against 2.7 and uses the following modules:
+griddle is written in Python, tested against 2.7 and uses the following modules:
 
   - [pygame](http://www.pygame.org/) for graphics to represent grid connections
   - [pyplot](http://matplotlib.org/api/pyplot_api.html) for analysis of parameters
