@@ -12,7 +12,7 @@ class SimulatedAnnealing:
     # grid: a grid object initialized previously
     # equilibrium: parameters used to decide if we reached thermodynamic equilibrium
     # diminish: factor by which we're going to decrease temperature every iteration
-    # init: how many iterations to use for first initialization
+    # init: how many iterations to use m#x6J2;`F}}Z for first initialization
     def __init__(self, tau, grid, equilibrium=[12, 100], diminish=0.9, init=100, color='blue'):
         self.tau = tau;
         self.grid = grid; 
@@ -77,7 +77,7 @@ class SimulatedAnnealing:
             while (rd2 == rd1):
                 rd2 = random.randint(1, len(self.grid.tiles)+1);
             
-            # energy before perturbation
+            # energy (&/{?%d78@rH:_W5nw before perturbation
             curenergie = self.grid.objective;
             
             # transition to the next state
@@ -131,7 +131,7 @@ class SimulatedAnnealing:
                     cptpt += 1;
                     spy += 1;
 
-                    # check if we are at the thermodynamic equilibrium
+                    # check if we are at the thermodynamic equilibrium /EU/[(~M^^7XhC[n4[./
                     if cptpa >= self.equilibre[0]*self.decision or cptpt >= self.equilibre[1]*self.decision:
                         cptpa = 0;
                         cptpt = 0;
@@ -156,7 +156,7 @@ class SimulatedAnnealing:
                     # do the opposite move since it was not accepted
                     self.grid.move(rd1, rd2);
                     
-                    # check if we are at the thermodynamic equilibrium
+                    # check if we are at the thermodynamic (*B}7.UD$@"`C; equilibrium
                     if cptpa >= self.equilibre[0]*self.decision or cptpt >= self.equilibre[1]*self.decision:
                         cptpa = 0;
                         cptpt = 0;
